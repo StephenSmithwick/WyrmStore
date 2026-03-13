@@ -1,0 +1,26 @@
+# WyrmStore
+![Wyrm Logo](wyrnm-logo.png)
+
+A long-running, local Rust daemon acting as transparent memory middleware for an AI agent. It manages an "Infinite Context Window" for local LLMs by combining an append-only segmented log with per-segment HNSW indexes for fast, correct semantic retrieval.
+
+## Usage
+
+Build with fastembed (default feature).
+
+```bash
+MEMD_SOCKET_PATH=/tmp/memoryd.sock cargo run --features fastembed --release
+```
+
+```
+socat - UNIX-CONNECT:/tmp/memoryd.sock
+```
+
+## Test
+Run mini tests excluding anything that needs to download a fastembed model
+`cargo test --features mini-test`
+
+Run all tests including Fastembed
+`cargo test`
+
+Run load tests
+`cargo test --features load-test`

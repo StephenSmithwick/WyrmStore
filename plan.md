@@ -2,7 +2,7 @@
 
 ## Project Overview
 
-**Goal:** A long-running, local Rust daemon acting as transparent memory middleware for an AI agent. It manages an "Infinite Context Window" for local LLMs (llama.cpp) by combining an append-only segmented log with per-segment HNSW indexes for fast, correct semantic retrieval.
+**Goal:** A long-running, local Rust daemon acting as transparent memory middleware for an AI agent. It manages an "Infinite Context Window" for local LLMs by combining an append-only segmented log with per-segment HNSW indexes for fast, correct semantic retrieval.
 
 **Core Philosophy:** The daemon sits transparently between the agent and the LLM, managing memory implicitly. It is intentionally simple and fast — it does not perform inference beyond embedding. All semantic judgments (contradiction detection, relevance assessment) are the responsibility of external callers who communicate back via the correction mechanism. The daemon is correctable, not intelligent.
 
